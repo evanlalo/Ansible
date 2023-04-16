@@ -1,0 +1,11 @@
+- hosts: "*"
+  gather_facts: false
+  tasks:
+    - copy:
+        src: /Users/evanlalo/.ssh/id_ed25519
+        dest: /home/evanlalo/.ssh/id_ed25519
+    - name: Fix permissions
+      file: path=/home/evanlalo/.ssh/id_ed25519 owner=evanlalo mode=600
+    - copy:
+        src: /Users/evanlalo/.ssh/id_ed25519.pub
+        dest: /home/evanlalo/.ssh/id_ed25519.pub
